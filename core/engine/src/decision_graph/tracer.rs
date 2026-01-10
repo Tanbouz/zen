@@ -6,6 +6,8 @@ use zen_expression::variable::ToVariable;
 use zen_types::decision::{DecisionNode, DecisionNodeKind};
 use zen_types::variable::Variable;
 
+use crate::time::Duration;
+
 pub(crate) struct NodeTracer(Option<HashMap<Arc<str>, DecisionGraphTrace>>);
 
 impl NodeTracer {
@@ -18,7 +20,7 @@ impl NodeTracer {
         node: &DecisionNode,
         input_trace: Variable,
         result: &NodeResult,
-        duration: std::time::Duration,
+        duration: Duration,
     ) {
         let Some(traces) = &mut self.0 else {
             return;

@@ -126,6 +126,8 @@ mod config;
 mod decision;
 mod decision_graph;
 mod engine;
+mod time;
+
 pub mod error;
 pub mod loader;
 pub mod model;

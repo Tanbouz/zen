@@ -9,7 +9,8 @@ use std::ops::Deref;
 use std::rc::Rc;
 use std::sync::atomic::Ordering;
 use std::sync::Arc;
-use std::time::Instant;
+
+use crate::time::Instant;
 
 use crate::config::ZEN_CONFIG;
 use crate::model::{
