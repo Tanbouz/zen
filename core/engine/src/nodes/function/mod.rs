@@ -1,5 +1,15 @@
 pub mod http_handler;
+
+#[cfg(feature = "quickjs")]
 pub(crate) mod v1;
+#[cfg(not(feature = "quickjs"))]
+#[path = "noop_v1.rs"]
+pub(crate) mod v1;
+
+#[cfg(feature = "quickjs")]
+pub(crate) mod v2;
+#[cfg(not(feature = "quickjs"))]
+#[path = "noop.rs"]
 pub(crate) mod v2;
 
 use crate::nodes::definition::NodeHandler;

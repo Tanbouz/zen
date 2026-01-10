@@ -1,5 +1,6 @@
 use std::ops::Deref;
-use std::time::{Duration, Instant};
+
+use crate::time::{Duration, Instant};
 
 use crate::nodes::definition::NodeHandler;
 use crate::nodes::function::v2::error::{FunctionError, FunctionResult};

@@ -1,6 +1,7 @@
 use std::ops::Deref;
 use std::sync::Arc;
-use std::time::{Duration, Instant};
+
+use crate::time::{Duration, Instant};
 
 use crate::nodes::definition::NodeHandler;
 use crate::nodes::function::v1::runtime::create_runtime;
