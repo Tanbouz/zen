@@ -25,7 +25,8 @@ use std::cell::RefCell;
 use std::ops::Deref;
 use std::rc::Rc;
 use std::sync::Arc;
-use std::time::Instant;
+
+use crate::time::Instant;
 use zen_expression::variable::{ToVariable, Variable};
 use zen_types::decision::DecisionNode;
 

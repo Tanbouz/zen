@@ -1,7 +1,8 @@
 use std::cell::RefCell;
 use std::future::Future;
 use std::pin::Pin;
-use std::time::{Duration, Instant};
+
+use crate::time::{Duration, Instant};
 
 use crate::nodes::function::v2::error::{FunctionResult, ResultExt};
 use crate::nodes::function::v2::listener::{RuntimeEvent, RuntimeListener};

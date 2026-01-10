@@ -1,0 +1,8 @@
+target/
+Cargo.lock
+pkg/
+node_modules/
+.DS_Store
+*.swp
+*.swo
+*~

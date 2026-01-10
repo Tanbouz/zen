@@ -27,6 +27,8 @@ rust_decimal = "1"
 rust_decimal_macros = "1"
 json_dotpath = "1"
 nohash-hasher = "0.2"
+web-time = "1.1"
+getrandom = "0.3.4"
 
 anyhow = "1"
 thiserror = "1"

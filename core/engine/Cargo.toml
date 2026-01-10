@@ -23,7 +23,7 @@ json_dotpath = { workspace = true }
 rust_decimal = { workspace = true, features = ["maths-nopanic"] }
 fixedbitset = "0.5"
 tokio = { workspace = true, features = ["sync", "time"] }
-rquickjs = { version = "0.10", features = ["macro", "loader", "rust-alloc", "futures", "either", "properties"] }
+rquickjs = { version = "0.10", features = ["macro", "loader", "rust-alloc", "futures", "either", "properties"], optional = true }
 zen-types = { path = "../types", version = "0.53.0" }
 zen-expression = { path = "../expression", version = "0.53.0" }
 zen-tmpl = { path = "../template", version = "0.53.0" }
@@ -45,11 +45,18 @@ jsonschema = { version = "0.33" }
 
 [target.'cfg(target_family = "wasm")'.dependencies]
 jsonschema = { version = "0.33", default-features = false }
-rquickjs = { version = "0.10", features = ["macro", "loader", "rust-alloc", "futures", "either", "properties", "bindgen"] }
+getrandom = { workspace = true, features = ["wasm_js"] }
+web-time = { workspace = true }
 
 [[bench]]
 harness = false
 name = "engine"
 
 [features]
-bindgen = ["rquickjs/bindgen"]
+default = ["quickjs"]
+
+# QuickJS support for Function nodes (v1 and v2)
+quickjs = ["dep:rquickjs"]
+
+# Required for WASM target when using QuickJS (currently disabled for WASM builds)
+bindgen = ["quickjs", "rquickjs/bindgen"]
