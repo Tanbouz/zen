@@ -1,0 +1,17 @@
+{
+  "name": "zen-web-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:deno:latest": "deno test --allow-read --allow-net --allow-write test/deno/",
+    "test:deno:2.1.4": "deno@2.1.4 test --allow-read --allow-net --allow-write test/deno/",
+    "test:browser": "npx playwright test",
+    "test:all": "npm run test:deno:latest && npm run test:deno:2.1.4 && npm run test:browser"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  },
+  "engines": {
+    "node": ">= 18"
+  }
+}
