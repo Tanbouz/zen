@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenEngine WASM Test</title>
+</head>
+<body>
+    <h1>ZenEngine WASM Test Page</h1>
+    <div id="status">Loading WASM module...</div>
+    
+    <script type="module">
+        let ZenEngine;
+        let zenLoaded = false;
+        
+        try {
+            // Import WASM module - using absolute path from server root
+            import('/pkg/zen_web.js').then(async module => {
+                const { default: init, ZenEngine: ZenEngineClass } = module;
+                
+                // Initialize WASM
+                await init();
+                
+                // Make ZenEngine available globally
+                ZenEngine = ZenEngineClass;
+                window.ZenEngine = ZenEngine;
+                zenLoaded = true;
+                window.zenLoaded = true;
+                
+                document.getElementById('status').textContent = 'WASM module loaded successfully!';
+                console.log('ZenEngine WASM module initialized');
+            }).catch(error => {
+                document.getElementById('status').textContent = 'Error loading WASM: ' + error.message;
+                console.error('Error loading WASM:', error);
+                window.zenLoaded = false;
+            });
+        } catch (error) {
+            document.getElementById('status').textContent = 'Error: ' + error.message;
+            console.error('Error:', error);
+            window.zenLoaded = false;
+        }
+    </script>
+</body>
+</html>

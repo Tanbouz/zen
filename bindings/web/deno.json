@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window"],
+    "strict": true
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": ["src/", "test/"]
+    }
+  },
+  "tasks": {
+    "test": "deno test --allow-read --allow-net --allow-write test/deno/"
+  }
+}
